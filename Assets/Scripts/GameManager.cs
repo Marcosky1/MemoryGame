@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public CardInfo[] cardPool;
     public GameObject card;
     public GameObject puzzleField;
+    public GameEndManager gameEndManager;
     //public GameObject winPanel;
     private List<GameObject> cards = new List<GameObject>();
     private List<Button> buttons = new List<Button>();
@@ -139,6 +140,7 @@ public class GameManager : MonoBehaviour
         if (matches == totalMatches)
         {
             print("Win");
+            gameEndManager.EndGame();
             //winPanel.gameObject.SetActive(true);
         }
     }
