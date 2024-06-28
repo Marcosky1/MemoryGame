@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 
 public class GameEndManager : MonoBehaviour
@@ -56,11 +57,16 @@ public class GameEndManager : MonoBehaviour
         if (www.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Score submitted successfully!");
+            RestartGame();
         }
         else
         {
             Debug.Log("Error submitting score: " + www.error);
         }
+    }
+    private void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
     }
 }
 
